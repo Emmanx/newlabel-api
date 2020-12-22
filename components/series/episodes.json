@@ -1,0 +1,40 @@
+{
+  "collectionName": "components_series_episodes",
+  "info": {
+    "name": "episodes",
+    "icon": "tv",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "episodeNumber": {
+      "type": "integer",
+      "required": true
+    },
+    "buyPrice": {
+      "type": "decimal",
+      "required": true
+    },
+    "vimeoLink": {
+      "type": "string",
+      "required": true
+    },
+    "runtime": {
+      "type": "string",
+      "required": true
+    },
+    "scene": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true
+    }
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "name": "product",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "type": {
+      "type": "dynamiczone",
+      "components": [
+        "product.series",
+        "product.single-item"
+      ],
+      "required": true,
+      "max": 1
+    },
+    "poster": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "widePoster": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "banner": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "productType": {
+      "type": "enumeration",
+      "enum": [
+        "single",
+        "series"
+      ]
+    },
+    "category": {
+      "model": "category",
+      "via": "products"
+    },
+    "genres": {
+      "collection": "genre",
+      "via": "products"
+    }
+  }
+}

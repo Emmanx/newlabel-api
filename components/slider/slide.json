@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_slider_slides",
+  "info": {
+    "name": "slide",
+    "icon": "indent"
+  },
+  "options": {},
+  "attributes": {
+    "introText": {
+      "type": "string",
+      "required": true
+    },
+    "product": {
+      "model": "product"
+    }
+  }
+}

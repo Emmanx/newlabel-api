@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_series_seasons",
+  "info": {
+    "name": "seasons",
+    "icon": "chalkboard-teacher",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "seasonNumber": {
+      "type": "integer",
+      "required": true
+    },
+    "seasonPassPrice": {
+      "type": "decimal",
+      "required": true
+    },
+    "episodes": {
+      "type": "component",
+      "repeatable": true,
+      "component": "series.episodes",
+      "required": true
+    }
+  }
+}

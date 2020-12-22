@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_product_single_items",
+  "info": {
+    "name": "singleItem",
+    "icon": "video",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "vimeoLink": {
+      "type": "string",
+      "required": true
+    },
+    "buyPrice": {
+      "type": "decimal",
+      "required": true
+    },
+    "rentPrice": {
+      "type": "decimal",
+      "required": true
+    },
+    "runtime": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
