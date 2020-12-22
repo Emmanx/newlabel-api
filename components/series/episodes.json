@@ -35,6 +35,9 @@
       ],
       "plugin": "upload",
       "required": true
+    },
+    "attachmentLink": {
+      "type": "string"
     }
   }
 }

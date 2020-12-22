@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "homepage_sections",
+  "info": {
+    "name": "homepage sections"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "products": {
+      "collection": "product"
+    },
+    "layoutType": {
+      "type": "enumeration",
+      "enum": [
+        "grid",
+        "slider"
+      ],
+      "required": true,
+      "default": "slider"
+    },
+    "cardType": {
+      "type": "enumeration",
+      "enum": [
+        "wide",
+        "long"
+      ],
+      "required": true,
+      "default": "long"
+    }
+  }
+}

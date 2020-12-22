@@ -22,6 +22,9 @@
     "runtime": {
       "type": "string",
       "required": true
+    },
+    "attachmentLink": {
+      "type": "string"
     }
   }
 }
