@@ -13,6 +13,9 @@ module.exports = {
 
     const entity = await strapi.services.product.findOne({ id }, [
         {
+          path: 'genres'
+        },
+        {
           path: 'related',
           populate: {
             path: 'genres'
