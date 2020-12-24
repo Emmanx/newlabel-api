@@ -69,6 +69,13 @@
     "genres": {
       "collection": "genre",
       "via": "products"
+    },
+    "year": {
+      "type": "integer",
+      "required": true
+    },
+    "related": {
+      "collection": "product"
     }
   }
 }
