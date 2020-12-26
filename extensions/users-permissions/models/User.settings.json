@@ -59,7 +59,7 @@
       "plugin": "users-permissions",
       "configurable": false
     },
-    "fullname": {
+    "name": {
       "type": "string",
       "required": true
     },
