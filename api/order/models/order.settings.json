@@ -19,7 +19,7 @@
     "product": {
       "model": "product"
     },
-    "txRef": {
+    "txId": {
       "type": "string",
       "required": false
     },

@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "topups",
   "info": {
-    "name": "topup"
+    "name": "topup",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -15,7 +16,7 @@
       "model": "user",
       "via": "topups"
     },
-    "txRef": {
+    "txId": {
       "type": "string",
       "required": true
     },
