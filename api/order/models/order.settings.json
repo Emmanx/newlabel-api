@@ -19,10 +19,6 @@
     "product": {
       "model": "product"
     },
-    "txId": {
-      "type": "string",
-      "required": false
-    },
     "amount": {
       "type": "decimal",
       "required": true,
@@ -38,6 +34,9 @@
         "gateway"
       ],
       "required": true
+    },
+    "txId": {
+      "type": "integer"
     }
   }
 }

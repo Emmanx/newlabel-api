@@ -16,16 +16,15 @@
       "model": "user",
       "via": "topups"
     },
-    "txId": {
-      "type": "string",
-      "required": true
-    },
     "amount": {
       "type": "decimal"
     },
     "status": {
       "type": "string",
       "required": true
+    },
+    "txId": {
+      "type": "integer"
     }
   }
 }
