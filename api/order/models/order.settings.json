@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orders",
+  "info": {
+    "name": "order",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "orders"
+    },
+    "product": {
+      "model": "product"
+    },
+    "txRef": {
+      "type": "string",
+      "required": false
+    },
+    "amount": {
+      "type": "decimal",
+      "required": true,
+      "min": 1
+    },
+    "status": {
+      "type": "string"
+    },
+    "paymentType": {
+      "type": "enumeration",
+      "enum": [
+        "wallet",
+        "gateway"
+      ],
+      "required": true
+    }
+  }
+}

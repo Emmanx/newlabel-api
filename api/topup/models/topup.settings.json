@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "topups",
+  "info": {
+    "name": "topup"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "topups"
+    },
+    "txRef": {
+      "type": "string",
+      "required": true
+    },
+    "amount": {
+      "type": "decimal"
+    },
+    "status": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
