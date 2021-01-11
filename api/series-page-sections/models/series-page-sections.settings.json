@@ -1,9 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "homepage_sections",
+  "collectionName": "series_page_sections",
   "info": {
-    "name": "homepage sections",
-    "description": ""
+    "name": "Series page sections"
   },
   "options": {
     "increments": true,

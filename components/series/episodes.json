@@ -38,6 +38,9 @@
     },
     "attachmentLink": {
       "type": "string"
+    },
+    "description": {
+      "type": "text"
     }
   }
 }

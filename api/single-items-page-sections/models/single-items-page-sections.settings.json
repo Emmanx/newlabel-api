@@ -1,9 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "homepage_sections",
+  "collectionName": "single_items_page_sections",
   "info": {
-    "name": "homepage sections",
-    "description": ""
+    "name": "Single Items Page Sections"
   },
   "options": {
     "increments": true,
