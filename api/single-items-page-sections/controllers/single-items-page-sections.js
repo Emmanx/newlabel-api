@@ -5,6 +5,8 @@
  * to customize this controller
  */
 
+const { sanitizeEntity } = require('strapi-utils');
+
 module.exports = {
   async find(ctx) {
     let entities;
@@ -21,6 +23,6 @@ module.exports = {
       ]);
     }
 
-    return entities.map(entity => sanitizeEntity(entity, { model: strapi.models["single-items-sections"] }));
+    return entities.map(entity => sanitizeEntity(entity, { model: strapi.models["single-items-page-sections"] }));
   },
 };
