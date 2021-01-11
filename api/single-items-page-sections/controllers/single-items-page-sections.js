@@ -9,9 +9,9 @@ module.exports = {
   async find(ctx) {
     let entities;
     if (ctx.query._q) {
-      entities = await strapi.services["single-items-sections"].search(ctx.query);
+      entities = await strapi.services["single-items-page-sections"].search(ctx.query);
     } else {
-      entities = await strapi.services["single-items-sections"].find(ctx.query, [
+      entities = await strapi.services["single-items-page-sections"].find(ctx.query, [
         {
           path: 'products',
           populate: {
