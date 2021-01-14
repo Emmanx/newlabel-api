@@ -20,22 +20,25 @@ module.exports = {
     try {
       const txDetails = await strapi.services.transaction.verify(txId);
 
-      const entity = await strapi.services.topup.create({
+      const topup = await strapi.services.topup.create({
         user,
         txId,
         amount: txDetails.amount,
         status: txDetails.status,
       })
 
-      const customer = await strapi
+      let customer = await strapi
         .query("user", "users-permissions")
         .model.findOne({ _id: user }).select("walletBalance")
 
-      await strapi
+      customer = await strapi
         .query("user", "users-permissions")
         .model.findOneAndUpdate({ _id: user }, { walletBalance: customer.walletBalance + txDetails.amount })
       
-      return sanitizeEntity(entity, { model: strapi.models.topup });
+      return {
+        topup: sanitizeEntity(topup, { model: strapi.models.topup }),
+        customer: sanitizeEntity(customer, { model: strapi.models.user })
+      };
     } catch (error) {
       console.log(error)
       throw error

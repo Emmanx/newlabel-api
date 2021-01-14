@@ -12,9 +12,9 @@
   },
   "attributes": {
     "user": {
+      "via": "topups",
       "plugin": "users-permissions",
-      "model": "user",
-      "via": "topups"
+      "model": "user"
     },
     "amount": {
       "type": "decimal"

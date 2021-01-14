@@ -74,12 +74,15 @@
       "required": true
     },
     "orders": {
-      "via": "user",
-      "collection": "order"
+      "collection": "order",
+      "via": "user"
     },
     "topups": {
-      "via": "user",
-      "collection": "topup"
+      "collection": "topup",
+      "via": "user"
+    },
+    "starred": {
+      "collection": "product"
     }
   }
 }

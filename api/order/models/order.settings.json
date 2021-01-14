@@ -12,9 +12,9 @@
   },
   "attributes": {
     "user": {
+      "via": "orders",
       "plugin": "users-permissions",
-      "model": "user",
-      "via": "orders"
+      "model": "user"
     },
     "product": {
       "model": "product"
