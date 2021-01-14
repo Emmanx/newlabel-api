@@ -35,10 +35,7 @@ module.exports = {
         .query("user", "users-permissions")
         .model.findOneAndUpdate({ _id: user }, { walletBalance: customer.walletBalance + txDetails.amount })
       
-      return {
-        topup: sanitizeEntity(topup, { model: strapi.models.topup }),
-        customer: sanitizeEntity(customer, { model: strapi.models.user })
-      };
+      return sanitizeEntity(topup, { model: strapi.models.topup })
     } catch (error) {
       console.log(error)
       throw error
