@@ -17,32 +17,47 @@ module.exports = {
   async create(ctx) {
     const {txId, amount, product, user, donation, paymentType} = ctx.request.body;
 
+    
     try {
-      const txDetails = await strapi.services.transaction.verify(txId);
-
-      if(amount > txDetails.amount) throw new Error('Product amount is greater than txDetails amount')
-
-      const entity = await strapi.services.order.create({
-        user,
-        product,
-        txId,
-        paymentType,
-        amount: txDetails.amount,
-        status: txDetails.status,
-        donation
-      })
-
-      if(paymentType === wallet) {
+      if(paymentType === 'wallet') {
         const customer = await strapi
           .query("user", "users-permissions")
           .model.findOne({ _id: user }).select("walletBalance")
 
+        if(customer.walletBalance < amount) throw new Error('Insufficient wallet balance')
+
         await strapi
           .query("user", "users-permissions")
           .model.findOneAndUpdate({ _id: user }, { walletBalance: customer.walletBalance - txDetails.amount })
+          
+        const entity = await strapi.services.order.create({
+          user,
+          product,
+          txId,
+          paymentType,
+          amount,
+          status: 'successful',
+          donation
+        })
+
+        return sanitizeEntity(entity, { model: strapi.models.order });
+      } else if(paymentType === 'gateway') {
+        const txDetails = await strapi.services.transaction.verify(txId);
+        
+        if(amount > txDetails.amount) throw new Error('Product amount is greater than txDetails amount')
+
+        const entity = await strapi.services.order.create({
+          user,
+          product,
+          txId,
+          paymentType,
+          amount: txDetails.amount,
+          status: txDetails.status,
+          donation
+        })
+
+        return sanitizeEntity(entity, { model: strapi.models.order });
       }
-      
-      return sanitizeEntity(entity, { model: strapi.models.order });
     } catch (error) {
       console.log(error)
       throw error
