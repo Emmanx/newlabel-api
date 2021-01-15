@@ -15,10 +15,12 @@ module.exports = {
    */
 
   async create(ctx) {
-    const {txId, product, user, donation, paymentType} = ctx.request.body;
+    const {txId, amount, product, user, donation, paymentType} = ctx.request.body;
 
     try {
       const txDetails = await strapi.services.transaction.verify(txId);
+
+      if(amount > txDetails.amount) throw new Error('Product amount is greater than txDetails amount')
 
       const entity = await strapi.services.order.create({
         user,
