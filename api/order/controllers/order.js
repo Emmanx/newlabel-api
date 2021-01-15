@@ -15,7 +15,7 @@ module.exports = {
    */
 
   async create(ctx) {
-    const {txId, product, user, paymentType} = ctx.request.body;
+    const {txId, product, user, donation, paymentType} = ctx.request.body;
 
     try {
       const txDetails = await strapi.services.transaction.verify(txId);
@@ -27,6 +27,7 @@ module.exports = {
         paymentType,
         amount: txDetails.amount,
         status: txDetails.status,
+        donation
       })
 
       if(paymentType === wallet) {

@@ -12,9 +12,9 @@
   },
   "attributes": {
     "user": {
-      "via": "orders",
       "plugin": "users-permissions",
-      "model": "user"
+      "model": "user",
+      "via": "orders"
     },
     "product": {
       "model": "product"
@@ -37,6 +37,10 @@
     },
     "txId": {
       "type": "integer"
+    },
+    "donation": {
+      "type": "boolean",
+      "required": true
     }
   }
 }
