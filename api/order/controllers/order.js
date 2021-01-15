@@ -24,11 +24,11 @@ module.exports = {
           .query("user", "users-permissions")
           .model.findOne({ _id: user }).select("walletBalance")
 
-        if(customer.walletBalance < amount) throw new Error('Insufficient wallet balance')
+        if(customer.walletBalance < amount) ctx.send({message: 'Insufficient wallet balance'}, 400)
 
         await strapi
           .query("user", "users-permissions")
-          .model.findOneAndUpdate({ _id: user }, { walletBalance: customer.walletBalance - txDetails.amount })
+          .model.findOneAndUpdate({ _id: user }, { walletBalance: customer.walletBalance - amount })
           
         const entity = await strapi.services.order.create({
           user,
@@ -37,7 +37,7 @@ module.exports = {
           paymentType,
           amount,
           status: 'successful',
-          donation
+          donation: false,
         })
 
         return sanitizeEntity(entity, { model: strapi.models.order });
@@ -53,7 +53,7 @@ module.exports = {
           paymentType,
           amount: txDetails.amount,
           status: txDetails.status,
-          donation
+          donation: false,
         })
 
         return sanitizeEntity(entity, { model: strapi.models.order });
