@@ -73,16 +73,17 @@
       "default": 0,
       "required": true
     },
-    "orders": {
-      "via": "user",
-      "collection": "order"
-    },
     "topups": {
       "collection": "topup",
       "via": "user"
     },
     "starred": {
       "collection": "product"
+    },
+    "purchase": {
+      "type": "component",
+      "repeatable": true,
+      "component": "order.purchase"
     }
   }
 }

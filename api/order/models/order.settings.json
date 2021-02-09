@@ -11,11 +11,6 @@
     "draftAndPublish": true
   },
   "attributes": {
-    "user": {
-      "plugin": "users-permissions",
-      "model": "user",
-      "via": "orders"
-    },
     "product": {
       "model": "product"
     },
@@ -41,6 +36,10 @@
     "donation": {
       "type": "boolean",
       "required": true
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user"
     }
   }
 }

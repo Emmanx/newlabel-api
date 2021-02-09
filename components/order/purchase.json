@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_order_purchases",
+  "info": {
+    "name": "purchase",
+    "icon": "archive"
+  },
+  "options": {},
+  "attributes": {
+    "order": {
+      "model": "order"
+    },
+    "product": {
+      "model": "product"
+    },
+    "seasons": {
+      "type": "json"
+    }
+  }
+}
