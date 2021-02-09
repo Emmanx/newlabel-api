@@ -63,5 +63,19 @@ module.exports = {
       throw error
     }
   },
+
+  async find(ctx) {
+    const { id } = ctx.params;
+
+    const entity = await strapi.services.order.find({ id }, [
+        {
+          path: 'product',
+          populate: {
+            path: 'genres'
+          }
+        }
+      ]);
+    return sanitizeEntity(entity, { model: strapi.models.order });
+  }
 };
 
